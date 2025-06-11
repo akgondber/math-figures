@@ -5,13 +5,13 @@ import {
   fiveTimes,
   fourTimes,
   goToRel,
-  sevenTimes,
   sixTimes,
   threeTimes,
   twoTimes,
   writeCur,
   writeRel,
 } from "./source/utils.js";
+import { cls } from "./source/term-helpers.js";
 
 const drawZero = () => {
   writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
@@ -404,4 +404,6 @@ export {
   drawDivide,
   drawMultiply,
   drawEqual,
+  cls,
+  cls as clearTerminal,
 };
