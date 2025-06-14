@@ -17,9 +17,8 @@ $ pnpm add math-figures
 ## Usage
 
 ```javascript
-import { drawTwo, clearTerminal } from "mathFigures";
+import { drawTwo } from "mathFigures";
 
-clearTerminal();
 drawTwo();
 ```
 

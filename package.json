@@ -1,6 +1,6 @@
 {
   "name": "math-figures",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Draw ascii math figures digits, operators and tokens in terminal",
   "repository": "https://github.com/akgondber/math-figures",
   "type": "module",
@@ -8,8 +8,7 @@
     "test": "vitest",
     "prettify": "prettier . --write",
     "pretcheck": "prettier . --check",
-    "build": "unbuild",
-    "exp": "node tmp/usg.js"
+    "build": "unbuild"
   },
   "keywords": [
     "math",
@@ -31,7 +30,8 @@
     "ansi-escapes": "^7.0.0",
     "delay": "^6.0.0",
     "figures": "^6.1.0",
-    "ramda": "^0.30.1"
+    "ramda": "^0.30.1",
+    "string-width": "^7.2.0"
   },
   "devDependencies": {
     "prettier": "^3.5.3",

@@ -1,4 +1,5 @@
 import ansiEscapes from "ansi-escapes";
+import stringWidth from "string-width";
 import * as R from "ramda";
 
 const sevenTimes = R.flip(R.times)(7);
@@ -11,10 +12,13 @@ const twoTimes = R.flip(R.times)(2);
 const writeRel = (x, y, subject) => {
   process.stdout.write(ansiEscapes.cursorMove(x, y));
   process.stdout.write(subject);
+
+  return [x + stringWidth(subject), y];
 };
 
 const writeCur = (subject) => {
   process.stdout.write(subject);
+  return [stringWidth(subject), 0];
 };
 
 const goToRel = (x, y) => {

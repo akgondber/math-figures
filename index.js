@@ -40,11 +40,10 @@ const drawZero = () => {
     }
   }, 6);
   process.stdout.write(ansiEscapes.cursorMove(8, 5));
-  return 7;
+  return [5, 7];
 };
 
 const drawOne = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   process.stdout.write(ansiEscapes.cursorMove(0, 2));
   process.stdout.write(figureSet.lineSlash);
   process.stdout.write(ansiEscapes.cursorMove(0, -1));
@@ -56,22 +55,22 @@ const drawOne = () => {
     process.stdout.write(ansiEscapes.cursorMove(-1, 1));
     process.stdout.write(figureSet.lineVerticalBold);
   });
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+
   return [4, 6];
 };
 
 const drawTwo = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
-  writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
   times(() => {
-    process.stdout.write(figureSet.lineDouble);
+    writeCur(figureSet.lineDouble);
   }, 5);
-  process.stdout.write(figureSet.lineDownDoubleLeftDouble);
+  writeCur(figureSet.lineDownDoubleLeftDouble);
   threeTimes(() => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
+
   writeRel(-1, 0, figureSet.lineUpDoubleLeftDouble);
   writeRel(-2, 0, figureSet.lineDouble);
+
   fourTimes((i) => {
     if (i === 0) {
       writeRel(-2, 0, figureSet.lineDouble);
@@ -84,28 +83,23 @@ const drawTwo = () => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
   writeRel(-1, 0, figureSet.lineUpDoubleRightDouble);
+
   fiveTimes((i) => {
-    if (i === 0) {
-      writeRel(0, 0, figureSet.lineDouble);
-    } else {
-      writeRel(0, 0, figureSet.lineDouble);
-    }
+    writeRel(0, 0, figureSet.lineDouble);
   });
   writeCur(figureSet.lineUpDoubleLeftDouble);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
-  return [7, 8];
+
+  return [7, 7];
 };
 
-const drawThree = (restorePos = false) => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
-  if (restorePos) {
-    writeCur(ansiEscapes.cursorSavePosition);
-  }
+const drawThree = () => {
   writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
+
   fiveTimes(() => {
-    process.stdout.write(figureSet.lineDouble);
+    writeRel(0, 0, figureSet.lineDouble);
   });
-  process.stdout.write(figureSet.lineDownDoubleLeftDouble);
+
+  writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
   threeTimes(() => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
@@ -115,6 +109,7 @@ const drawThree = (restorePos = false) => {
   }, 5);
   goToRel(4, 0);
   writeRel(0, 0, figureSet.lineUpDoubleDownDoubleLeftDouble);
+
   times(() => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   }, 2);
@@ -123,15 +118,11 @@ const drawThree = (restorePos = false) => {
     writeRel(-2, 0, figureSet.lineDouble);
   }, 5);
   writeRel(-2, 0, figureSet.lineUpDoubleRightDouble);
-  if (restorePos) {
-    writeCur(ansiEscapes.cursorRestorePosition);
-  }
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(6, 0);
   return [7, 8];
 };
 
 const drawFour = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   threeTimes((i) => {
     if (i === 0) {
       writeRel(0, 0, figureSet.lineVerticalDouble);
@@ -153,12 +144,10 @@ const drawFour = () => {
       writeRel(-1, 1, figureSet.lineVerticalDouble);
     }
   }, 3);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
   return [6, 8];
 };
 
 const drawFive = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   times((i) => {
     if (i !== 0) {
       writeRel(0, 0, figureSet.lineDouble);
@@ -183,12 +172,11 @@ const drawFive = () => {
     writeRel(-2, 0, figureSet.lineDouble);
   });
   writeRel(-2, 0, figureSet.lineUpDoubleRightDouble);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(6, 0);
   return [7, 8];
 };
 
 const drawSix = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   times((i) => {
     if (i !== 0) {
       writeRel(0, 0, figureSet.lineDouble);
@@ -213,7 +201,7 @@ const drawSix = () => {
     writeRel(-2, 0, figureSet.lineDouble);
   });
   writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(6, 3);
   return [7, 8];
 };
 
@@ -232,11 +220,11 @@ const drawSeven = () => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
   process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(8, 6);
   return [8, 8];
 };
 
 const drawEight = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   writeRel(0, 2, figureSet.lineVerticalDouble);
   times((i) => {
     writeRel(-1, -1, figureSet.lineVerticalDouble);
@@ -268,12 +256,11 @@ const drawEight = () => {
   twoTimes(() => {
     writeRel(-1, -1, figureSet.lineVerticalDouble);
   });
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(0, 2);
   return [7, 8];
 };
 
 const drawNine = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   writeRel(5, 3, figureSet.lineUpDoubleDownDoubleLeftDouble);
 
   twoTimes((i) => {
@@ -315,12 +302,11 @@ const drawNine = () => {
   twoTimes((i) => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(0, 4);
   return [7, 8];
 };
 
 const drawPlus = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   fourTimes((i) => {
     if (i === 0) {
       writeRel(1, 3, figureSet.lineDouble);
@@ -339,12 +325,11 @@ const drawPlus = () => {
     }
   });
   writeRel(-4, 1, figureSet.lineVerticalDouble);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
+  goToRel(3, 0);
   return [9, 10];
 };
 
 const drawMinus = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   fourTimes((i) => {
     if (i === 0) {
       writeRel(2, 3, figureSet.lineDouble);
@@ -352,27 +337,21 @@ const drawMinus = () => {
       writeRel(0, 0, figureSet.lineDouble);
     }
   });
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
   return [6, 4];
 };
 
 const drawDivide = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   writeRel(4, 2, figureSet.checkboxOff);
   writeRel(-1, 2, figureSet.squareSmall);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
   return [5, 6];
 };
 
 const drawMultiply = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   writeRel(4, 3, figureSet.circleFilled);
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
   return [5, 5];
 };
 
 const drawEqual = () => {
-  process.stdout.write(ansiEscapes.cursorSavePosition);
   fourTimes((i) => {
     if (i === 0) {
       writeRel(1, 2, figureSet.lineDouble);
@@ -384,7 +363,6 @@ const drawEqual = () => {
   threeTimes(() => {
     writeRel(0, 0, figureSet.lineDouble);
   });
-  process.stdout.write(ansiEscapes.cursorRestorePosition);
   return [6, 4];
 };
 
