@@ -23,6 +23,7 @@ const writeCur = (subject) => {
 
 const goToRel = (x, y) => {
   process.stdout.write(ansiEscapes.cursorMove(x, y));
+  return [x, y];
 };
 
 export {
