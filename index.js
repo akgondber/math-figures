@@ -238,10 +238,10 @@ const drawSix = () => {
     if (i !== 0) {
       writeRel(0, 0, figureSet.lineDouble);
     } else {
-      writeRel(0, 0, figureSet.lineDouble);
+      writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
     }
   }, 7);
-  writeRel(-7, 0, figureSet.lineDownDoubleRightDouble);
+  goToRel(-6, 0);
   fiveTimes(() => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
@@ -258,8 +258,8 @@ const drawSix = () => {
     writeRel(-2, 0, figureSet.lineDouble);
   });
   writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
-  goToRel(3, 3);
-  return [7, 8];
+  goToRel(4, 3);
+  return [5, 8];
 };
 
 const drawSeven = () => {
@@ -386,7 +386,7 @@ const drawPlus = () => {
 const drawMinus = () => {
   fourTimes((i) => {
     if (i === 0) {
-      writeRel(2, 3, figureSet.lineDouble);
+      writeRel(1, 3, figureSet.lineDouble);
     } else {
       writeRel(0, 0, figureSet.lineDouble);
     }
@@ -395,7 +395,7 @@ const drawMinus = () => {
 };
 
 const drawDivide = () => {
-  let [offsetX, offsetY] = writeRel(4, 2, figureSet.checkboxOff);
+  let [offsetX, offsetY] = writeRel(2, 2, figureSet.checkboxOff);
   const currOffset = writeRel(-1, 2, figureSet.checkboxOff);
   offsetX += currOffset[0];
   offsetY += currOffset[1];
@@ -403,7 +403,7 @@ const drawDivide = () => {
 };
 
 const drawMultiply = () => {
-  writeRel(3, 3, figureSet.bullet);
+  writeRel(1, 3, figureSet.bullet);
   return [4, 3];
 };
 
