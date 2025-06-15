@@ -13,12 +13,12 @@ const writeRel = (x, y, subject) => {
   process.stdout.write(ansiEscapes.cursorMove(x, y));
   process.stdout.write(subject);
 
-  return [x + stringWidth(subject), y];
+  return [x + stringWidth(subject), 1];
 };
 
 const writeCur = (subject) => {
   process.stdout.write(subject);
-  return [stringWidth(subject), 0];
+  return [stringWidth(subject), 1];
 };
 
 const goToRel = (x, y) => {

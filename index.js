@@ -67,7 +67,7 @@ const drawOne = () => {
     offsetY += offsets[1];
   });
 
-  return [offsetX, offsety];
+  return [offsetX, offsetY];
 };
 
 const drawTwo = () => {
