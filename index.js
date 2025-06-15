@@ -263,7 +263,7 @@ const drawSix = () => {
 };
 
 const drawSeven = () => {
-  writeRel(0, 1, figureSet.lineVerticalDouble);
+  writeRel(0, 0, figureSet.lineVerticalDouble);
   times((i) => {
     if (i === 0) {
       writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
@@ -279,35 +279,50 @@ const drawSeven = () => {
 };
 
 const drawEight = () => {
-  writeRel(0, 2, figureSet.lineVerticalDouble);
-  times((i) => {
-    writeRel(-1, -1, figureSet.lineVerticalDouble);
-  }, 2);
-  writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
-
-  times((i) => {
-    writeRel(0, 0, figureSet.lineDouble);
-  }, 5);
-  writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
-  twoTimes(() => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+  sixTimes((i) => {
+    if (i === 0) {
+      writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
+    } else {
+      writeRel(0, 0, figureSet.lineDouble);
+    }
   });
-
-  writeRel(-1, 1, figureSet.lineUpDoubleDownDoubleLeftDouble);
-  fiveTimes(() => {
-    writeRel(-2, 0, figureSet.lineDouble);
+  fourTimes((i) => {
+    if (i === 0) {
+      writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
+    } else {
+      writeRel(-1, 1, figureSet.lineVerticalDouble);
+    }
   });
-  writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
-
-  twoTimes(() => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+  sixTimes((i) => {
+    if (i === 0) {
+      writeRel(-1, 0, figureSet.lineUpDoubleDownDoubleLeftDouble);
+    } else {
+      writeRel(-2, 0, figureSet.lineDouble);
+    }
   });
-  writeRel(-1, 1, figureSet.lineUpDoubleRightDouble);
-  fiveTimes(() => {
-    writeRel(0, 0, figureSet.lineDouble);
+  threeTimes((i) => {
+    if (i === 0) {
+      writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
+    } else {
+      writeRel(-1, -1, figureSet.lineVerticalDouble);
+    }
   });
-  writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
-  twoTimes(() => {
+  goToRel(0, 2);
+  fourTimes((i) => {
+    if (i === 3) {
+      writeRel(-1, 0, figureSet.lineUpDoubleRightDouble);
+    } else {
+      writeRel(-1, 1, figureSet.lineVerticalDouble);
+    }
+  });
+  sixTimes((i) => {
+    if (i === 5) {
+      writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
+    } else {
+      writeRel(0, 0, figureSet.lineDouble);
+    }
+  });
+  twoTimes((i) => {
     writeRel(-1, -1, figureSet.lineVerticalDouble);
   });
   goToRel(0, 2);

@@ -1,6 +1,6 @@
 {
   "name": "math-figures",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Draw ascii math figures digits, operators and tokens in terminal",
   "repository": "https://github.com/akgondber/math-figures",
   "type": "module",
