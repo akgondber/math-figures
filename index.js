@@ -319,12 +319,15 @@ const drawSix = () => {
   offsets = writeRel(-1, 1, figureSet.lineUpDoubleRightDouble);
   offsetX += offsets[0];
   offsetY += offsets[1];
+  let maxHorOffset = 0;
   fiveTimes(() => {
     offsets = writeRel(0, 0, figureSet.lineDouble);
     offsetX += offsets[0];
     offsetY += offsets[1];
+    maxHorOffset++;
   });
   offsets = writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
+  maxHorOffset++;
   offsetX += offsets[0];
   offsetY += offsets[1];
   twoTimes(() => {
@@ -343,7 +346,7 @@ const drawSix = () => {
   offsets = writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
   offsetX += offsets[0];
   offsetY += offsets[1];
-  offsets = goToRel(4, 3);
+  offsets = goToRel(maxHorOffset, 3);
   offsetX += offsets[0];
   offsetY += offsets[1];
   return [offsetX, offsetY];
