@@ -372,7 +372,7 @@ const drawNine = () => {
     writeRel(-1, 1, figureSet.lineVerticalDouble);
   });
   goToRel(0, 4);
-  return [7, 8];
+  return [6, 8];
 };
 
 const drawPlus = () => {
