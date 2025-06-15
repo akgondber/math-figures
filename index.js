@@ -295,32 +295,58 @@ const drawFive = () => {
 };
 
 const drawSix = () => {
+  let offsetX = 0;
+  let offsetY = 0;
+  let offsets = [];
+
   times((i) => {
     if (i !== 0) {
-      writeRel(0, 0, figureSet.lineDouble);
+      offsets = writeRel(0, 0, figureSet.lineDouble);
     } else {
-      writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
+      offsets = writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
     }
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   }, 7);
-  goToRel(-6, 0);
+  offsets = goToRel(-6, 0);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   fiveTimes(() => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  writeRel(-1, 1, figureSet.lineUpDoubleRightDouble);
+  offsets = writeRel(-1, 1, figureSet.lineUpDoubleRightDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   fiveTimes(() => {
-    writeRel(0, 0, figureSet.lineDouble);
+    offsets = writeRel(0, 0, figureSet.lineDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
+  offsets = writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   twoTimes(() => {
-    writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  writeRel(-1, -1, figureSet.lineDownDoubleLeftDouble);
+  offsets = writeRel(-1, -1, figureSet.lineDownDoubleLeftDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   fiveTimes(() => {
-    writeRel(-2, 0, figureSet.lineDouble);
+    offsets = writeRel(-2, 0, figureSet.lineDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
-  goToRel(4, 3);
-  return [5, 8];
+  offsets = writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
+  offsets = goToRel(4, 3);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
+  return [offsetX, offsetY];
 };
 
 const drawSeven = () => {
@@ -515,6 +541,50 @@ const drawDot = () => {
   return writeRel(1, 0, figureSet.squareSmall);
 };
 
+const drawQuestion = () => {
+  let offsetX = 0;
+  let offsetY = 0;
+  let offsets;
+  fiveTimes((i) => {
+    if (i === 0) {
+      offsets = writeCur(figureSet.lineDownDoubleRightDouble);
+    } else {
+      offsets = writeCur(figureSet.lineDouble);
+    }
+    offsetX += currOffsets[0];
+    offsetY += currOffsets[1];
+  });
+  offsets = writeCur(figureSet.lineDownDoubleLeftDouble);
+  offsetX += currOffsets[0];
+  offsetY += currOffsets[1];
+  twoTimes((i) => {
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += currOffsets[0];
+    offsetY += currOffsets[1];
+  });
+  offsets = writeRel(-1, 1, figureSet.lineUpDoubleLeftDouble);
+  offsetX += currOffsets[0];
+  offsetY += currOffsets[1];
+  twoTimes(() => {
+    offsets = writeRel(-2, 0, figureSet.lineDouble);
+    offsetX += currOffsets[0];
+    offsetY += currOffsets[1];
+  });
+  offsets = writeRel(-2, 0, figureSet.lineDownDoubleRightDouble);
+  offsetX += currOffsets[0];
+  offsetY += currOffsets[1];
+  twoTimes(() => {
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += currOffsets[0];
+    offsetY += currOffsets[1];
+  });
+  offsets = writeRel(-1, 1, figureSet.bullet);
+  offsetX += currOffsets[0];
+  offsetY += currOffsets[1];
+
+  return [offsetX, offsetY];
+};
+
 export {
   drawZero,
   drawOne,
@@ -532,6 +602,7 @@ export {
   drawMultiply,
   drawEqual,
   drawDot,
+  drawQuestion,
   cls,
   cls as clearTerminal,
 };
