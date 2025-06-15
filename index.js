@@ -60,6 +60,7 @@ const drawOne = () => {
 };
 
 const drawTwo = () => {
+  writeCur(figureSet.lineDownDoubleRightDouble);
   times(() => {
     writeCur(figureSet.lineDouble);
   }, 5);
