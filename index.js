@@ -353,116 +353,179 @@ const drawSix = () => {
 };
 
 const drawSeven = () => {
-  writeRel(0, 0, figureSet.lineVerticalDouble);
+  let offsetX = 0;
+  let offsetY = 0;
+  let offsets = [];
+  offsets = writeRel(0, 0, figureSet.lineVerticalDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   times((i) => {
     if (i === 0) {
-      writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
+      offsets = writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
     } else {
-      writeRel(0, 0, figureSet.lineDouble);
+      offsets = writeRel(0, 0, figureSet.lineDouble);
     }
   }, 7);
-  writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
+  offsets = writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   sixTimes(() => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  return [8, 8];
+  return [offsetX, offsetY];
 };
 
 const drawEight = () => {
+  let offsetX = 0;
+  let offsetY = 0;
+  let offsets = [];
   sixTimes((i) => {
     if (i === 0) {
-      writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
+      offsets = writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(0, 0, figureSet.lineDouble);
+      offsets = writeRel(0, 0, figureSet.lineDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
   fourTimes((i) => {
     if (i === 0) {
-      writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
+      offsets = writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(-1, 1, figureSet.lineVerticalDouble);
+      offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
   sixTimes((i) => {
     if (i === 0) {
-      writeRel(-1, 0, figureSet.lineUpDoubleDownDoubleLeftDouble);
+      offsets = writeRel(-1, 0, figureSet.lineUpDoubleDownDoubleLeftDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(-2, 0, figureSet.lineDouble);
+      offsets = writeRel(-2, 0, figureSet.lineDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
   threeTimes((i) => {
     if (i === 0) {
-      writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
+      offsets = writeRel(-2, 0, figureSet.lineUpDoubleDownDoubleRightDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(-1, -1, figureSet.lineVerticalDouble);
+      offsets = writeRel(-1, -1, figureSet.lineVerticalDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
-  goToRel(0, 2);
+  offsets = goToRel(0, 2);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   fourTimes((i) => {
     if (i === 3) {
-      writeRel(-1, 0, figureSet.lineUpDoubleRightDouble);
+      offsets = writeRel(-1, 0, figureSet.lineUpDoubleRightDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(-1, 1, figureSet.lineVerticalDouble);
+      offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
   sixTimes((i) => {
     if (i === 5) {
-      writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
+      offsets = writeRel(0, 0, figureSet.lineUpDoubleLeftDouble);
     } else {
-      writeRel(0, 0, figureSet.lineDouble);
+      offsets = writeRel(0, 0, figureSet.lineDouble);
     }
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
   twoTimes((i) => {
-    writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  goToRel(0, 2);
-  return [7, 8];
+  offsets = goToRel(0, 2);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
+  return [offsetX, offsetY];
 };
 
 const drawNine = () => {
-  writeRel(5, 3, figureSet.lineUpDoubleDownDoubleLeftDouble);
+  let offsetX = 0;
+  let offsetY = 0;
+  let offsets = [];
+  offsets = writeRel(5, 3, figureSet.lineUpDoubleDownDoubleLeftDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
 
   twoTimes((i) => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  writeRel(-1, 1, figureSet.lineUpDoubleLeftDouble);
+  offsets = writeRel(-1, 1, figureSet.lineUpDoubleLeftDouble);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
   fiveTimes((i) => {
-    writeRel(
+    offsets = writeRel(
       -2,
       0,
       i === 4 ? figureSet.lineUpDoubleRightDouble : figureSet.lineDouble,
     );
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
   fiveTimes((i) => {
     if (i === 0) {
-      writeRel(3, -3, figureSet.lineDouble);
+      offsets = writeRel(3, -3, figureSet.lineDouble);
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     } else {
-      writeRel(
+      offsets = writeRel(
         -2,
         0,
         i === 4 ? figureSet.lineUpDoubleRightDouble : figureSet.lineDouble,
       );
+      offsetX += offsets[0];
+      offsetY += offsets[1];
     }
   });
   twoTimes((i) => {
-    writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, -1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
   sixTimes((i) => {
     if (i === 0) {
-      writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
+      offsets = writeRel(-1, -1, figureSet.lineDownDoubleRightDouble);
     } else {
-      writeRel(
+      offsets = writeRel(
         0,
         0,
         i === 5 ? figureSet.lineDownDoubleLeftDouble : figureSet.lineDouble,
       );
     }
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
   twoTimes((i) => {
-    writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsets = writeRel(-1, 1, figureSet.lineVerticalDouble);
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   });
-  goToRel(0, 4);
-  return [4, 8];
+  offsets = goToRel(0, 4);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
+  return [offsetX, offsetY];
 };
 
 const drawPlus = () => {

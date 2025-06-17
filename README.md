@@ -17,9 +17,10 @@ $ pnpm add math-figures
 ## Usage
 
 ```javascript
-import { drawTwo } from "mathFigures";
+import { drawTwo, drawSix } from "math-figures";
 
 drawTwo();
+drawSix();
 ```
 
 ## License
