@@ -12,6 +12,7 @@ import {
   writeRel,
 } from "./source/utils.js";
 import { cls } from "./source/term-helpers.js";
+import { drawError, drawSuccess } from "./source/status-figures.js";
 
 const drawZero = () => {
   writeRel(0, 0, figureSet.lineDownDoubleRightDouble);
@@ -365,6 +366,8 @@ const drawSeven = () => {
     } else {
       offsets = writeRel(0, 0, figureSet.lineDouble);
     }
+    offsetX += offsets[0];
+    offsetY += offsets[1];
   }, 7);
   offsets = writeRel(0, 0, figureSet.lineDownDoubleLeftDouble);
   offsetX += offsets[0];
@@ -671,4 +674,6 @@ export {
   drawQuestion,
   cls,
   cls as clearTerminal,
+  drawSuccess,
+  drawError,
 };
