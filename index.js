@@ -49,15 +49,19 @@ const drawOne = () => {
   let offsetY = 0;
   let offsets;
 
-  offsets = writeRel(0, 2, figureSet.lineSlash);
+  offsets = writeRel(0, 1, figureSet.lineSlash);
   offsetX += offsets[0];
   offsetY += offsets[1];
 
-  twoTimes(() => {
-    offsets = writeRel(0, -1, figureSet.lineSlash);
-    offsetX += offsets[0];
-    offsetY += offsets[1];
-  });
+  offsets = writeRel(0, -1, figureSet.lineSlash);
+  offsetX += offsets[0];
+  offsetY += offsets[1];
+  // times((i) => {
+  //   if (i === 0) { }
+  //   offsets = writeRel(0, -1, figureSet.lineSlash);
+  //   offsetX += offsets[0];
+  //   offsetY += offsets[1];
+  // }, 1);
 
   offsets = writeCur(figureSet.lineVerticalBold);
   offsetX += offsets[0];
@@ -357,7 +361,7 @@ const drawSeven = () => {
   let offsetX = 0;
   let offsetY = 0;
   let offsets = [];
-  offsets = writeRel(0, 0, figureSet.lineVerticalDouble);
+  offsets = writeRel(0, 1, figureSet.lineVerticalDouble);
   offsetX += offsets[0];
   offsetY += offsets[1];
   times((i) => {
